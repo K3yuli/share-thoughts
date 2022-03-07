@@ -1,5 +1,7 @@
 // import the dependencies from mongoose
 const { Schema, model } = require('mongoose');
+// create model
+const User = model('Pizza', UserSchema);
 
 // create schema
 const UserSchema = new Schema (
@@ -18,6 +20,14 @@ const UserSchema = new Schema (
             
         },
         // reference thought model
-        
+
+
+        // friends : array of _id values referencing the User model (self-reference)
+
     }
 )
+
+// Schema Settings
+// Create a virtual called friendCount that retrieves the length of the user's friends array field on query.
+const User = model('User', UserSchema);
+module.exports = { User }; 
