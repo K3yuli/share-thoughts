@@ -1,7 +1,7 @@
 // import the dependencies from mongoose
 const { Schema, model } = require('mongoose');
 // create model
-const User = model('Pizza', UserSchema);
+const User = model('User', UserSchema);
 
 // create schema
 const UserSchema = new Schema (
@@ -21,7 +21,7 @@ const UserSchema = new Schema (
         },
         // reference thought model
         thoughts: [
-            
+
         ]
         
 
