@@ -20,6 +20,10 @@ const UserSchema = new Schema (
             
         },
         // reference thought model
+        thoughts: [
+            
+        ]
+        
 
 
         // friends : array of _id values referencing the User model (self-reference)
