@@ -2,6 +2,14 @@
 const { Schema, model } = require('mongoose');
 
 const dateFormat = require('../')
+
+const ReactionSchema = new Schema (
+    {
+        
+    }
+)
+
+
 // create schema
 const ThoughtSchema = new Schema (
     {
