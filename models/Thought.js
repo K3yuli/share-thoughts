@@ -1,7 +1,7 @@
 // import dependencies from mongo
 const { Schema, model } = require('mongoose');
-const Thought = model('thought', ThoughtSchema);
 
+const dateFormat = require('../')
 // create schema
 const ThoughtSchema = new Schema (
     {
@@ -11,9 +11,10 @@ const ThoughtSchema = new Schema (
             // must be between 1 & 280 characters
         },
         createdAt: {
-            // date
-            // Set default value to the current timestamp
+            type: Date,
+            default: Date.now,
             // Use a getter method to format the timestamp on query
+            get: createAtVal => dateFormat(createAtVal)
         },
         // username of the one who created the thought
         username: {
@@ -28,3 +29,7 @@ const ThoughtSchema = new Schema (
 
     // Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
 )
+
+const Thought = model('Thought', ThoughtSchema);
+
+module.exports = Thought;
