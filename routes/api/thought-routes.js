@@ -9,3 +9,4 @@ router.route('/:userId')
 router.route('/:userId/:thoughtId')
 .delete(removeThought);
 
+module.exports = router;
