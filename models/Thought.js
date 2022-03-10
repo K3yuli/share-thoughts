@@ -27,8 +27,8 @@ const ReactionSchema = new Schema (
             // set default to the current timestamp
             default: Date.now,
             // use getter method to format the timestamp on query
-            get: createAtVal => dateFormat(createAtVal)
-        },
+            get: createAtVal => moment(createAtVal).format('MM DD, YYYY [at] hh:mm a')
+        }
 
     },
     {
@@ -46,13 +46,14 @@ const ThoughtSchema = new Schema (
             type: String,
             required: true,
             // must be between 1 & 280 characters
+            minlength: 1,
             maxlength: 280
         },
         createdAt: {
             type: Date,
             default: Date.now,
             // Use a getter method to format the timestamp on query
-            get: createAtVal => dateFormat(createAtVal)
+            get: createAtVal => moment(createAtVal).format('MM DD, YYYY [at] hh:mm a')
         },
         // username of the one who created the thought
         username: {
@@ -60,9 +61,8 @@ const ThoughtSchema = new Schema (
             required: true
         },
         // replies
-        reactions: {
-            // Array of nested documents created with the reactionSchema
-        }
+        reactions: [ReactionSchema]
+        
     },
     {
         toJSON: {
@@ -71,9 +71,14 @@ const ThoughtSchema = new Schema (
         },
         id: false
     }
-
-    // Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
 )
+
+// Create a virtual called reactionCount that retrieves the length of the thought's reactions array field on query.
+ThoughtSchema.virtual('reactionCount').get(function() {
+    return this.reaction.length;
+});
+
+
 
 const Thought = model('Thought', ThoughtSchema);
 
