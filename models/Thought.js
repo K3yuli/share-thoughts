@@ -25,7 +25,7 @@ const ReactionSchema = new Schema (
             // set default to the current timestamp
             default: Date.now,
             // use getter method to format the timestamp on query
-            get: createAtVal => moment(createAtVal).format('MM DD, YYYY [at] hh:mm a')
+            get: (createAtVal) => moment(createAtVal).format('MM DD, YYYY [at] hh:mm a')
         }
 
     },
@@ -51,7 +51,7 @@ const ThoughtSchema = new Schema (
             type: Date,
             default: Date.now,
             // Use a getter method to format the timestamp on query
-            get: createAtVal => moment(createAtVal).format('MM DD, YYYY [at] hh:mm a')
+            get: (createAtVal) => moment(createAtVal).format('MM DD, YYYY [at] hh:mm a')
         },
         // username of the one who created the thought
         username: {

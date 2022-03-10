@@ -1,6 +1,7 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
+
     // get all thoughts
     getAllThought(req, res) {
         Thought.find({})
@@ -27,7 +28,7 @@ const thoughtController = {
         });
     },
     // add POST thought to a user
-    addThought({ params, body }, res) {
+    createThought({ params, body }, res) {
         Thought.create(body)
         .then(({ _id }) => {
             return User.findOneAndUpdate(
