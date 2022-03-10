@@ -1,6 +1,10 @@
 const { Thought, User } = require('../models');
 
 const thoughtController = {
+    // get all thoughts
+
+    // get a single thought
+
     // add thought to a user
     addThought({ params, body }, res) {
         Thought.create(body)
@@ -21,6 +25,8 @@ const thoughtController = {
         .catch(err => res.json(err));
     },
     
+    // update (PUT) thought by id
+
     // remove thought
     removeThought({ params }, res) {
         Thought.findOneAndDelete({ _id: params.thoughtId })
