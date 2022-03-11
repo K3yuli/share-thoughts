@@ -5,15 +5,26 @@ const thoughtController = {
     // get all thoughts
     getAllThought(req, res) {
         Thought.find({})
+        .populate({
+            path: 'reaction',
+            select: '-__v'})
+            .select('-__v')
+
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch(err => {
             console.log(err);
-            res.status(400).json(err);
+            res.status(500).json(err);
         });
     },
     // get a single thought by id
     getThoughtById({ params }, res) {
         Thought.findOne({ _id: params.id })
+        .populate({
+            path: 'reaction',
+            select: '-__v'
+        })
+        .select('-__v')
+
         .then(dbThoughtData => {
             // if no thought found send 404
             if(!dbThoughtData) {
@@ -37,12 +48,12 @@ const thoughtController = {
             { new: true }
             );
         })
-        .then(dbUserDate => {
-            if(!dbUserDate) {
+        .then(dbThoughtData => {
+            if(!dbThoughtData) {
                 res.status(404).json({ message: 'No user found with this id!' });
                 return;
             }
-            res.json(dbUserDate);
+            res.json(dbThoughtData);
         })
         .catch(err => res.json(err));
     },
