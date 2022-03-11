@@ -59,7 +59,7 @@ const ThoughtSchema = new Schema (
             required: true
         },
         // replies
-        reactions: [ReactionSchema]
+        reaction: [ReactionSchema]
         
     },
     {

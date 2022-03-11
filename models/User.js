@@ -20,7 +20,7 @@ const UserSchema = new Schema (
             
         },
         // reference thought model
-        thoughts: [
+        thought: [
             {
                 // tell mongoose to expect an ObjectId
                 type: Schema.Types.ObjectId,
