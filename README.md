@@ -21,7 +21,7 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 ```
 
 ## Usage
-
+run npm install
 ## Installation
 
 ## Demo
