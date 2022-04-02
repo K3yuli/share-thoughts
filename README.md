@@ -1,13 +1,19 @@
-<h1 align="center">Social Network API</h1>
+<h1 align="center">Share Thoughts</h1>
 
-## User Story
+## Table of Contents
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Demo](#demo)
+- [Technologies](#technologies)
+
+## <a name="user-story">User Story</a>
 ```md
 AS A social media startup
 I WANT an API for my social network that uses a NoSQL database
 SO THAT my website can handle large amounts of unstructured data
 ```
 
-## Acceptance Criteria
+## <a name="acceptance-criteria">Acceptance Criteria</a>
 ```md
 GIVEN a social network API
 WHEN I enter the command to invoke the application
@@ -20,9 +26,9 @@ WHEN I test API POST and DELETE routes in Insomnia
 THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 ```
 
-## Usage
-run npm install
-## Installation
+## <a name="demo">Demo</a>
 
-## Demo
-
+## <a name="technologies">Technologies</a>
+- [Express](https://expressjs.com/)
+- [Moment](https://momentjs.com/)
+- [Mongoose](https://mongoosejs.com/)
