@@ -1,7 +1,6 @@
 // import the dependencies from mongoose
 const { Schema, model } = require('mongoose');
 
-
 // create schema
 const UserSchema = new Schema (
     {
@@ -16,7 +15,7 @@ const UserSchema = new Schema (
             required: true,
             unique: true,
             // must match a valid email address
-            match: [/.+@.+\..+/, 'Please enter a valid e-mail address']
+            match: [/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/, 'Please enter a valid e-mail address']
             
         },
         // reference thought model
